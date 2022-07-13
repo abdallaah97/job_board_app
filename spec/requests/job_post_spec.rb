@@ -7,7 +7,7 @@ RSpec.describe 'job_post', type: :request do
 
   path '/api/job_post/create_job_post' do
 
-    post('create_job_post job_post') do
+    post('create job post by admin only') do
       response(200, 'successful') do
         consumes 'application/json'
         security [Bearer: {}]
@@ -33,7 +33,7 @@ RSpec.describe 'job_post', type: :request do
 
   path '/api/job_post/update_job_post' do
 
-    put('update_job_post job_post') do
+    put('update job post by admin only') do
       response(200, 'successful') do
         security [Bearer: {}]
         parameter name: :job_post, in: :body, schema: {
@@ -60,7 +60,7 @@ RSpec.describe 'job_post', type: :request do
   path '/api/job_post/destroy_job_post/{id}' do
     # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
-    delete('destroy_job_post job_post') do
+    delete('destroy job post by admin only') do
       response(200, 'successful') do
         security [Bearer: {}]
 
@@ -80,7 +80,7 @@ RSpec.describe 'job_post', type: :request do
 
   path '/api/job_post/list_all_job_posts' do
 
-    post('list_all_job_posts job_post') do
+    post('list all job posts (all post to the admin, filterd by expire date to the job seekers)') do
       response(200, 'successful') do
         security [Bearer: {}]
         parameter name: :job_post, in: :body, schema: {

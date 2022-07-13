@@ -4,7 +4,7 @@ RSpec.describe 'auth', type: :request do
 
   path '/api/auth/register' do
 
-    post('register auth') do
+    post('register job seeker user') do
       response(200, 'successful') do
         consumes 'application/json'
         parameter name: :user, in: :body, schema: {
@@ -30,7 +30,7 @@ RSpec.describe 'auth', type: :request do
 
   path '/api/auth/login' do
 
-    post('login auth') do
+    post('login job seeker or admin') do
       response(200, 'successful') do
         consumes 'application/json'
         parameter name: :user, in: :body, schema: {

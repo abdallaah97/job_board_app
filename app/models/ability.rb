@@ -9,6 +9,7 @@ class Ability
         can :list_job_applications_by_job_post , JobApplication
       else
         can :manage , JobApplication
+        can :list_all_job_posts, JobPost
       end
   end
 end

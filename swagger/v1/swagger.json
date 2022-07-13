@@ -7,7 +7,7 @@
   "paths": {
     "/api/auth/register": {
       "post": {
-        "summary": "register auth",
+        "summary": "register job seeker user",
         "consumes": [
           "application/json"
         ],
@@ -43,7 +43,7 @@
     },
     "/api/auth/login": {
       "post": {
-        "summary": "login auth",
+        "summary": "login job seeker or admin",
         "consumes": [
           "application/json"
         ],
@@ -75,7 +75,7 @@
     },
     "/api/job_application/create_job_application": {
       "post": {
-        "summary": "create_job_application job_application",
+        "summary": "create job application by job seeker only",
         "consumes": [
           "application/json"
         ],
@@ -109,7 +109,7 @@
                 },
                 "barth_date": {
                   "type": "string",
-                  "example": "2004-07-12T18:35:11+03:00"
+                  "example": "2004-07-13T04:33:58+03:00"
                 },
                 "address": {
                   "type": "string"
@@ -142,7 +142,7 @@
         }
       ],
       "get": {
-        "summary": "list_job_applications_by_job_post job_application",
+        "summary": "list job applications by job_post_id (admin & job seekers)",
         "security": [
           {
             "Bearer": {
@@ -158,7 +158,7 @@
     },
     "/api/job_post/create_job_post": {
       "post": {
-        "summary": "create_job_post job_post",
+        "summary": "create job post by admin only",
         "consumes": [
           "application/json"
         ],
@@ -183,7 +183,7 @@
                 },
                 "expire_date": {
                   "type": "string",
-                  "example": "2022-07-12T18:35:11+03:00"
+                  "example": "2022-07-13T04:33:58+03:00"
                 }
               }
             }
@@ -198,7 +198,7 @@
     },
     "/api/job_post/update_job_post": {
       "put": {
-        "summary": "update_job_post job_post",
+        "summary": "update job post by admin only",
         "security": [
           {
             "Bearer": {
@@ -223,7 +223,7 @@
                 },
                 "expire_date": {
                   "type": "string",
-                  "example": "2022-07-12T18:35:11+03:00"
+                  "example": "2022-07-13T04:33:58+03:00"
                 }
               }
             }
@@ -247,7 +247,7 @@
         }
       ],
       "delete": {
-        "summary": "destroy_job_post job_post",
+        "summary": "destroy job post by admin only",
         "security": [
           {
             "Bearer": {
@@ -263,7 +263,7 @@
     },
     "/api/job_post/list_all_job_posts": {
       "post": {
-        "summary": "list_all_job_posts job_post",
+        "summary": "list all job posts (all post to the admin, filterd by expire date to the job seekers)",
         "security": [
           {
             "Bearer": {
@@ -282,7 +282,7 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "example": "2022-07-12T18:35:11+03:00"
+                  "example": "2022-07-13T04:33:58+03:00"
                 }
               }
             }

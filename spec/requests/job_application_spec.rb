@@ -7,7 +7,7 @@ RSpec.describe 'job_application', type: :request do
 
   path '/api/job_application/create_job_application' do
 
-    post('create_job_application job_application') do
+    post('create job application by job seeker only') do
       response(200, 'successful') do
         consumes 'application/json'
         security [Bearer: {}]
@@ -41,7 +41,7 @@ RSpec.describe 'job_application', type: :request do
     # You'll want to customize the parameter types...
     parameter name: 'job_post_id', in: :path, type: :string, description: 'job_post_id'
 
-    get('list_job_applications_by_job_post job_application') do
+    get('list job applications by job_post_id (admin & job seekers)') do
       response(200, 'successful') do
         security [Bearer: {}]
 
