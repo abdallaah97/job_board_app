@@ -47,7 +47,9 @@ class JobPostController < ApplicationController
     def list_all_job_posts
         begin
             @job_posts_result = JobPost.all
-            @job_posts_result = @job_posts_result.filter_by_expire_date()
+            if (!current_user.is_admin)
+                @job_posts_result = @job_posts_result.filter_by_expire_date()
+            end
             @job_posts_result = @job_posts_result.filter_by_creation_date(params[:created_at]) if params[:created_at].present?
             @job_posts_result = @job_posts_result.filter_by_title(params[:title]) if params[:title].present?
             @job_posts_result = @job_posts_result.order('created_at desc')
